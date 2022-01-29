@@ -64,8 +64,7 @@
   const keyToKeyElement = new Map(keyElements.map(element => [element.dataset.key, element]));
   const keys = new Set(keyToAuidioElement.keys());
 
-  keyElements.forEach(element => element.addEventListener('transitionend', (e) =>
-    e.target.classList.remove('playing')));
+  keyElements.forEach(element => element.addEventListener('transitionend', hanldleTransitionEnd));
 
   document.addEventListener('keydown', (e) => {
     const keyCode = e.keyCode.toString();
@@ -81,6 +80,12 @@
     audioElement.pause()
     audioElement.currentTime = 0;
     audioElement.play();
+  }
+
+  function hanldleTransitionEnd(event){
+    if (event.propertyName !== 'transform')
+      return;
+    event.target.classList.remove('playing');
   }
 </script>
 </body>
