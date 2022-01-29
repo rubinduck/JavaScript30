@@ -1,64 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
+  <meta charset='UTF-8'>
   <title>JS Drum Kit</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel='stylesheet' href='style.css'>
 </head>
 <body>
 
 
-  <div class="keys">
-    <div data-letter="A" data-sound="clap" class="key">
+  <div class='keys'>
+    <div data-letter='A' data-sound='clap' class='key'>
       <kbd>A</kbd>
-      <span class="sound">clap</span>
+      <span class='sound'>clap</span>
     </div>
-    <div data-letter="S" data-sound="hihat" class="key">
+    <div data-letter='S' data-sound='hihat' class='key'>
       <kbd>S</kbd>
-      <span class="sound">hihat</span>
+      <span class='sound'>hihat</span>
     </div>
-    <div data-letter="D" data-sound="kick" class="key">
+    <div data-letter='D' data-sound='kick' class='key'>
       <kbd>D</kbd>
-      <span class="sound">kick</span>
+      <span class='sound'>kick</span>
     </div>
-    <div data-letter="F" data-sound="openhat"class="key">
+    <div data-letter='F' data-sound='openhat'class='key'>
       <kbd>F</kbd>
-      <span class="sound">openhat</span>
+      <span class='sound'>openhat</span>
     </div>
-    <div data-letter="G" data-sound="boom" class="key">
+    <div data-letter='G' data-sound='boom' class='key'>
       <kbd>G</kbd>
-      <span class="sound">boom</span>
+      <span class='sound'>boom</span>
     </div>
-    <div data-letter="H" data-sound="ride" class="key">
+    <div data-letter='H' data-sound='ride' class='key'>
       <kbd>H</kbd>
-      <span class="sound">ride</span>
+      <span class='sound'>ride</span>
     </div>
-    <div data-letter="J" data-sound="snare" class="key">
+    <div data-letter='J' data-sound='snare' class='key'>
       <kbd>J</kbd>
-      <span class="sound">snare</span>
+      <span class='sound'>snare</span>
     </div>
-    <div data-letter="K" data-sound="tom" class="key">
+    <div data-letter='K' data-sound='tom' class='key'>
       <kbd>K</kbd>
-      <span class="sound">tom</span>
+      <span class='sound'>tom</span>
     </div>
-    <div data-letter="L" data-sound="tink" class="key">
+    <div data-letter='L' data-sound='tink' class='key'>
       <kbd>L</kbd>
-      <span class="sound">tink</span>
+      <span class='sound'>tink</span>
     </div>
   </div>
 
-  <audio data-sound='clap' src="sounds/clap.wav"></audio>
-  <audio data-sound='hihat' src="sounds/hihat.wav"></audio>
-  <audio data-sound='kick' src="sounds/kick.wav"></audio>
-  <audio data-sound='hihat' src="sounds/openhat.wav"></audio>
-  <audio data-sound='boom' src="sounds/boom.wav"></audio>
-  <audio data-sound='ride' src="sounds/ride.wav"></audio>
-  <audio data-sound='snare' src="sounds/snare.wav"></audio>
-  <audio data-sound='tom' src="sounds/tom.wav"></audio>
-  <audio data-sound='tink' src="sounds/tink.wav"></audio>
+  <audio data-sound='clap' src='sounds/clap.wav'></audio>
+  <audio data-sound='hihat' src='sounds/hihat.wav'></audio>
+  <audio data-sound='kick' src='sounds/kick.wav'></audio>
+  <audio data-sound='hihat' src='sounds/openhat.wav'></audio>
+  <audio data-sound='boom' src='sounds/boom.wav'></audio>
+  <audio data-sound='ride' src='sounds/ride.wav'></audio>
+  <audio data-sound='snare' src='sounds/snare.wav'></audio>
+  <audio data-sound='tom' src='sounds/tom.wav'></audio>
+  <audio data-sound='tink' src='sounds/tink.wav'></audio>
 
 <script>
-  const keyElements = Array.from(document.querySelectorAll(".key"));
+  const keyElements = Array.from(document.querySelectorAll('.key'));
   const letterToKeyElement = new Map(keyElements.map(element => [element.dataset.letter, element]));
   const letters = new Set(letterToKeyElement.keys());
   const audioElements = Array.from(document.getElementsByTagName('audio'));
