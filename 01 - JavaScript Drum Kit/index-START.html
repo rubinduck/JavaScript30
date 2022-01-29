@@ -58,9 +58,30 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  const higlightDuration = 0.15;
+  const msInSecond = 1000;
+  const audioElements = Array.from(document.getElementsByTagName('audio'));
+  const keyToAuidioElement = new Map(audioElements.map(element => [element.dataset.key, element]));
+  const keyElements = Array.from(document.querySelectorAll(".key"));
+  const keyToKeyElement = new Map(keyElements.map(element => [element.dataset.key, element]));
+  const keys = new Set(keyToAuidioElement.keys());
 
+  document.addEventListener('keypress', (e) => {
+    const keyCode = e.keyCode.toString();
+    if (!keys.has(keyCode))
+      return;
+    const audioElement = keyToAuidioElement.get(keyCode);
+    const keyElement = keyToKeyElement.get(keyCode);
+    keyElement.classList.toggle('playing');
+    setTimeout(() => {keyElement.classList.toggle('playing')}, higlightDuration * msInSecond);
+    playAudioFromStart(audioElement);
+  })
+
+  function playAudioFromStart(audioElement){
+    audioElement.pause()
+    audioElement.currentTime = 0;
+    audioElement.play();
+  }
 </script>
-
-
 </body>
 </html>
